@@ -4,8 +4,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+//importo firebase con el script dado en la BD
+import * as firebase from 'firebase';
+//Menu listas
 import { ListPage } from '../pages/list/list';
 
+var config = {
+  apiKey: "AIzaSyAEnGCT9CTj6af9436tBi0dnpDhW1a6IjQ",
+  authDomain: "chat3-f6358.firebaseapp.com",
+  databaseURL: "https://chat3-f6358.firebaseio.com",
+  projectId: "chat3-f6358",
+  storageBucket: "",
+  messagingSenderId: "169759824186"
+  };
 @Component({
   templateUrl: 'app.html'
 })
@@ -34,6 +45,8 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    //inicializo firebase
+    firebase.initializeApp(config);
   }
 
   openPage(page) {
